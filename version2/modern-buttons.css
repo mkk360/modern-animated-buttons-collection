@@ -1,0 +1,640 @@
+/* Modern Button Collection 2025 - CSS */
+:root {
+    --primary: #146117;
+    --secondary: #e0a40b;
+    --white: #ffffff;
+    --black: #1d1d1d;
+    --gradient: linear-gradient(135deg, #e0a40b, #146117);
+    --transition: 0.3s ease;
+    /* default transition */
+}
+
+body {
+    background: #f8f9fa;
+    font-family: "Inter", sans-serif;
+    color: var(--black);
+}
+
+.gradient-text {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -text-fill-color: transparent;
+}
+
+/* ---------- General Button Base ---------- */
+.modern-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.6rem;
+    font-weight: 600;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+    text-transform: capitalize;
+    line-height: 1;
+    position: relative;
+    overflow: hidden;
+    user-select: none;
+}
+
+.modern-btn:focus-visible {
+    outline: 2px solid rgba(20, 97, 23, 0.6);
+    outline-offset: 2px;
+}
+
+/* Primary/Button Styles */
+.modern-btn--primary {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.modern-btn--primary:hover {
+    filter: brightness(1.1);
+}
+
+.modern-btn--secondary {
+    background: var(--secondary);
+    color: var(--black);
+}
+
+.modern-btn--secondary:hover {
+    filter: brightness(1.1);
+}
+
+.modern-btn--gradient {
+    background: var(--gradient);
+    color: var(--white);
+}
+
+.modern-btn--gradient:hover {
+    filter: brightness(1.1);
+}
+
+.modern-btn--outline {
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+.modern-btn--outline:hover {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.modern-btn--glass {
+    backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--black);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.modern-btn--glass:hover {
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.modern-btn--rounded {
+    border-radius: 50px;
+}
+
+/* ---------- Hover Animations ---------- */
+.modern-btn--hover-slide::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--primary);
+    transform: translateX(-100%);
+    transition: var(--transition);
+    z-index: -1;
+}
+
+.modern-btn--hover-slide:hover::before {
+    transform: translateX(0);
+}
+
+.modern-btn--hover-slide {
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+.modern-btn--hover-slide:hover {
+    color: var(--white);
+}
+
+.modern-btn--hover-glow {
+    background: var(--primary);
+    color: var(--white);
+    box-shadow: 0 0 0 rgba(20, 97, 23, 0.7);
+}
+
+.modern-btn--hover-glow:hover {
+    box-shadow: 0 0 12px rgba(20, 97, 23, 0.7), 0 0 24px rgba(20, 97, 23, 0.7);
+}
+
+.modern-btn--hover-bounce:hover {
+    transform: translateY(-4px);
+}
+
+.modern-btn--hover-ripple::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(1);
+    pointer-events: none;
+    transition: transform 0.6s, opacity 0.6s;
+}
+
+.modern-btn--hover-ripple:hover::after {
+    transform: scale(18);
+    opacity: 0;
+}
+
+.modern-btn--hover-flip {
+    perspective: 600px;
+}
+
+.modern-btn--hover-flip span {
+    display: inline-block;
+    transition: transform var(--transition);
+}
+
+.modern-btn--hover-flip:hover span {
+    transform: rotateX(180deg);
+}
+
+.modern-btn--hover-morph {
+    transition: background var(--transition), border-radius var(--transition);
+}
+
+.modern-btn--hover-morph:hover {
+    background: var(--primary);
+    color: var(--white);
+    border-radius: 50px;
+}
+
+/* ---------- Icon Buttons ---------- */
+.modern-btn--icon-left i {
+    margin-right: 0.5rem;
+}
+
+.modern-btn--icon-right i {
+    margin-left: 0.5rem;
+}
+
+.modern-btn--icon-only {
+    padding: 0.8rem;
+    border-radius: 50%;
+}
+
+.modern-btn--icon-social {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    color: #fff;
+    border: none;
+}
+
+.modern-btn--icon-social.facebook {
+    background: #3b5998;
+}
+
+.modern-btn--icon-social.twitter {
+    background: #1da1f2;
+}
+
+.modern-btn--icon-social:hover {
+    filter: brightness(1.1);
+}
+
+/* ---------- Special Effects ---------- */
+.modern-btn--neon {
+    background: #000;
+    color: #0f0;
+    text-shadow: 0 0 8px #0f0, 0 0 16px #0f0;
+}
+
+.modern-btn--neon:hover {
+    box-shadow: 0 0 8px #0f0, 0 0 16px #0f0, 0 0 32px #0f0;
+}
+
+.modern-btn--liquid {
+    background: var(--primary);
+    color: var(--white);
+    overflow: hidden;
+}
+
+.modern-btn--liquid::after {
+    content: "";
+    position: absolute;
+    top: -120%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background: rgba(255, 255, 255, 0.25);
+    transform: rotate(45deg);
+    transition: var(--transition);
+}
+
+.modern-btn--liquid:hover::after {
+    top: 120%;
+}
+
+.modern-btn--particle {
+    background: var(--gradient);
+    color: var(--white);
+}
+
+.modern-btn--particle:hover {
+    animation: particle 0.6s forwards;
+}
+
+@keyframes particle {
+    to {
+        transform: translateY(-6px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.modern-btn--hologram {
+    background: linear-gradient(135deg, #86fde8 0%, #acb6e5 100%);
+    color: #000;
+}
+
+.modern-btn--hologram:hover {
+    filter: hue-rotate(20deg);
+}
+
+.modern-btn--cyberpunk {
+    background: #ff018b;
+    color: #0ff;
+    box-shadow: 0 0 6px #ff018b, 0 0 12px #0ff;
+}
+
+.modern-btn--cyberpunk:hover {
+    box-shadow: 0 0 3px #ff018b, 0 0 24px #ff018b, 0 0 24px #0ff;
+}
+
+.modern-btn--retro {
+    background: #ff9800;
+    color: #1d1d1d;
+    font-family: "Press Start 2P", monospace;
+    text-transform: uppercase;
+}
+
+.modern-btn--retro:hover {
+    filter: contrast(1.2);
+}
+
+/* ---------- Loading & State Buttons ---------- */
+.modern-btn--loading {
+    position: relative;
+}
+
+.modern-btn--loading .btn-loader {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.modern-btn--loading.loading .btn-loader {
+    opacity: 1;
+}
+
+.modern-btn--loading.loading .btn-text {
+    opacity: 0;
+}
+
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.modern-btn--progress {
+    position: relative;
+    overflow: hidden;
+}
+
+.modern-btn--progress .progress-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0%;
+    height: 100%;
+    background: var(--gradient);
+    z-index: -1;
+    transition: width 0.3s ease;
+}
+
+.modern-btn--progress[data-progress="100"] .progress-bar {
+    width: 100%;
+}
+
+.modern-btn--success .btn-icon {
+    display: none;
+    margin-left: 0.5rem;
+}
+
+.modern-btn--success.success .btn-icon {
+    display: inline-block;
+}
+
+.modern-btn--success.success .btn-text {
+    display: none;
+}
+
+.modern-btn--pulse {
+    position: relative;
+    background: var(--secondary);
+    color: var(--black);
+}
+
+.modern-btn--pulse .pulse-ring {
+    position: absolute;
+    inset: 0;
+    border: 2px solid currentColor;
+    border-radius: 8px;
+    animation: pulse 1.5s ease-out infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1.8);
+        opacity: 0;
+    }
+}
+
+/* ---------- Toggle Switch ---------- */
+.toggle-switch {
+    position: relative;
+    display: inline-flex;
+    width: 52px;
+    height: 28px;
+}
+
+.toggle-input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #ccc;
+    border-radius: 28px;
+    transition: var(--transition);
+}
+
+.toggle-slider::before {
+    content: "";
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    width: 22px;
+    height: 22px;
+    background: #fff;
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.toggle-input:checked+.toggle-slider {
+    background: var(--primary);
+}
+
+.toggle-input:checked+.toggle-slider::before {
+    transform: translateX(24px);
+}
+
+/* Rounded */
+.toggle-switch--rounded .toggle-slider {
+    border-radius: 34px;
+}
+
+.toggle-slider--rounded::before {
+    border-radius: 50%;
+}
+
+/* Gradient */
+.toggle-switch--gradient .toggle-slider {
+    background: #ddd;
+}
+
+.toggle-slider--gradient {
+    background: #ddd;
+}
+
+.toggle-input:checked+.toggle-slider--gradient {
+    background: var(--gradient);
+}
+
+/* Large */
+.toggle-switch--large {
+    width: 68px;
+    height: 38px;
+}
+
+.toggle-slider--large::before {
+    width: 30px;
+    height: 30px;
+}
+
+.toggle-input:checked+.toggle-slider--large::before {
+    transform: translateX(30px);
+}
+
+/* Icon Toggle */
+.toggle-switch--icon {
+    width: 60px;
+    height: 32px;
+}
+
+.toggle-slider--icon {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6px;
+}
+
+.toggle-slider--icon i {
+    color: #fff;
+    font-size: 14px;
+    opacity: 0.6;
+    transition: var(--transition);
+}
+
+.toggle-input:checked+.toggle-slider--icon .toggle-icon-on {
+    opacity: 1;
+}
+
+.toggle-input:not(:checked)+.toggle-slider--icon .toggle-icon-off {
+    opacity: 1;
+}
+
+.toggle-input:checked+.toggle-slider--icon .toggle-icon-off {
+    opacity: 0.3;
+}
+
+.toggle-input:not(:checked)+.toggle-slider--icon .toggle-icon-on {
+    opacity: 0.3;
+}
+
+.toggle-slider--icon::before {
+    display: none;
+}
+
+/* Color Toggle */
+.toggle-switch--color .toggle-slider {
+    background: #888;
+}
+
+.toggle-input:checked+.toggle-slider--color {
+    background: #ff5722;
+}
+
+/* ---------- Layout helpers ---------- */
+.section-header {
+    margin: 2rem 0 1rem;
+}
+
+.section-header h2 {
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.toggle-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.toggle-label {
+    font-size: 0.875rem;
+}
+
+.integration-example {
+    margin-bottom: 2.5rem;
+}
+
+.example-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.nav-brand {
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.modern-btn--nav {
+    background: transparent;
+    color: var(--black);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+}
+
+.modern-btn--nav:hover {
+    background: var(--primary);
+    color: var(--white);
+    border-radius: 4px;
+}
+
+.modern-btn--cta {
+    background: var(--gradient);
+    color: var(--white);
+    border-radius: 50px;
+}
+
+.example-form {
+    max-width: 400px;
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+}
+
+.code-example {
+    margin-bottom: 2rem;
+    background: #212529;
+    color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    font-family: "Fira Code", monospace;
+    font-size: 0.875rem;
+    overflow-x: auto;
+}
+
+/* ---------- Utilities ---------- */
+@media (max-width: 576px) {
+    .button-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+
+    .nav-links {
+        display: none;
+    }
+}
